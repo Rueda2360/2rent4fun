@@ -10,7 +10,7 @@
 
 
     <menuitem name="Renting 2rent 2 fun aruedia202" id="flota_base_menu" />
-    <menuitem name="vehiculos" id="flota_vehiculo_menu" parent="flota_base_menu" action="flota_vehiculo_action" />
+    <menuitem name="Vehiculos" id="flota_vehiculo_menu" parent="flota_base_menu" action="flota_vehiculo_action" />
 
     <!-- Vista formulario -->
     <record id="flota_vehiculo_view_form" model="ir.ui.view">
