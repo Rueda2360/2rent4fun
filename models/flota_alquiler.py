@@ -15,7 +15,6 @@ class FlotaAlquiler(models.Model):
 
     #disponible = fields.Boolean('Disponible', default=False)
 
-
     @api.constrains('fechaInicio')
     def funcionFechaPrestamo(self):
         for registro in self:
