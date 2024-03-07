@@ -5,7 +5,6 @@ from odoo import models, fields
 
 
 
-#Definimos modelo Liga Equipo, que almacenara información de cada equipo
 class FlotaVehiculo(models.Model):
 
     #Nombre y descripcion del modelo
