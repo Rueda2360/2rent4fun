@@ -19,7 +19,7 @@ class FlotaVehiculo(models.Model):
 
     marca = fields.Char('Marca',required=True)
     matricula = fields.Char('Matricula',required=True)
-    foto = fields.Image('Image',max_width=50,max_height=50)
+    foto = fields.Image('Image',max_width=150,max_height=150)
     estado = fields.Char('Estado',required=True)
     #PARA CUANDO NO HAY UN ATRIBUTO LLAMADO NAME PARA MOSTRAR NOMBRE DE UN REGISTRO
     # https://www.odoo.com/es_ES/forum/ayuda-1/how-defined-display-name-in-custom-many2one-91657

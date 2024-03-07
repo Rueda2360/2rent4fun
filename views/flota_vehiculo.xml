@@ -2,7 +2,7 @@
 <odoo>
 
     <record id='flota_vehiculo_action' model='ir.actions.act_window'>
-        <field name="name">vehiculos de la flota</field>
+        <field name="name">Vehiculos de la flota</field>
         <field name="res_model">flota.vehiculo</field>
         <!-- Indicamos que este modelo se puede ver en kanban, tree y form -->
         <field name="view_mode">tree,form</field>
@@ -14,7 +14,7 @@
 
     <!-- Vista formulario -->
     <record id="flota_vehiculo_view_form" model="ir.ui.view">
-        <field name="name">Formulario de vehiculo de futbol</field>
+        <field name="name">Formulario de vehiculo</field>
         <field name="model">flota.vehiculo</field>
         <field name="arch" type="xml">
             <form>

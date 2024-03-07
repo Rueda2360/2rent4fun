@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='flota_cliente_action' model='ir.actions.act_window'>
+        <field name="name">Clientes de la flota</field>
+        <field name="res_model">flota.cliente</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Renting 2rent 2 fun aruedia202" id="flota_base_menu" />
+    <menuitem name="clientes" id="flota_cliente_menu" parent="flota_base_menu" action="flota_cliente_action" />
+
+    <!-- Vista formulario -->
+    <record id="flota_cliente_view_form" model="ir.ui.view">
+        <field name="name">Formulario de cliente</field>
+        <field name="model">flota.cliente</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="nombre" />
+                        <field name="apellido" />
+
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="flota_cliente_view_tree" model="ir.ui.view">
+        <field name="name">Lista de clientes de la flota</field>
+        <field name="model">flota.cliente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre" />
+                <field name="apellido" />
+
+            </tree>
+        </field>
+    </record>
+
+</odoo>
