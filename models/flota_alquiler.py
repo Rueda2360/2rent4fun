@@ -15,20 +15,6 @@ class FlotaAlquiler(models.Model):
 
     #disponible = fields.Boolean('Disponible', default=False)
 
-    
-    def devolver_vehiculo(self):
-        self.matriculaCoche.estado="Disponible"
-
-    def alquilar_vehiculo(self):
-        self.matriculaCoche.estado="Alquilado"
-
-    @api.constrains('matriculaCoche')
-    def estadoVehiculo(self):
-        for record in self:
-            if record.matriculaCoche.estado != 'Disponible':
-                raise ValidationError('El vehículo seleccionado no está disponible para alquilar.')
-    
-                
 
     @api.constrains('fechaInicio')
     def funcionFechaPrestamo(self):
@@ -42,20 +28,3 @@ class FlotaAlquiler(models.Model):
             yesterday = fields.Date.today() - timedelta(days=1)
             if registro.fechaDevolucion and registro.fechaDevolucion < yesterday:
                 raise ValidationError('La fecha prevista de vuelta no puede ser anterior al día de ayer.')
-
-    def unlink(self):
-        #Borro el registro, que es lo que hace el metodo normalmente
-        result=super(FlotaAlquiler,self).unlink()
-        #Añado que llame a devolver_vehiculo()
-        self.devolver_vehiculo()
-        return result
-    
-    #Sobreescribo el metodo crear
-    @api.model
-    def create(self, values):
-        #hago lo normal del metodo create
-        result = super().create(values)
-        #Añado esto: llamo a la funcion que actualiza la clasificacion
-        self.alquilar_vehiculo()
-        #hago lo normal del metodo create
-        return result
