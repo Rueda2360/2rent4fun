@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='flota_vehiculo_action' model='ir.actions.act_window'>
+        <field name="name">vehiculos de la flota</field>
+        <field name="res_model">flota.vehiculo</field>
+        <!-- Indicamos que este modelo se puede ver en kanban, tree y form -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Renting 2rent 2 fun aruedia202" id="flota_base_menu" />
+    <menuitem name="vehiculos" id="flota_vehiculo_menu" parent="flota_base_menu" action="flota_vehiculo_action" />
+
+    <!-- Vista formulario -->
+    <record id="flota_vehiculo_view_form" model="ir.ui.view">
+        <field name="name">Formulario de vehiculo de futbol</field>
+        <field name="model">flota.vehiculo</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="marca" />
+                        <field name="matricula" />
+                        <field name="foto" widget="image" class="oe_avatar" />
+                        <field name="estado" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="flota_vehiculo_view_tree" model="ir.ui.view">
+        <field name="name">Lista de vehiculos de la flota</field>
+        <field name="model">flota.vehiculo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="marca" />
+                <field name="matricula" />
+                <field name="foto" widget="image" class="oe_avatar" />
+                <field name="estado" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista busqueda-->
+    <record id="flota_vehiculo_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de vehiculos por marca</field>
+        <field name="model">flota.vehiculo</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="marca" />
+             </search>
+        </field>
+    </record>
+
+
+
+
+</odoo>
