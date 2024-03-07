@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <!-- Plantilla QWeb -->
+
+    <template id="report_alquiler_resultado">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <p>Marca del coche: <span t-field="doc.matriculaCoche.marca"/></p>
+                        <p>Matrícula: <span t-field="doc.matriculaCoche.matricula"/></p>
+                        <p>Cliente: <span t-field="doc.nombreCliente"/></p>
+                        <p>Fecha Inicio: <span t-field="doc.fechaInicio"/></p>
+                        <p>Fecha Devolución: <span t-field="doc.fechaDevolucion"/></p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <!-- Realmente, este es el informe, lo de arriba es la plantilla que utilizara el informe -->
+
+    <report id="report_alquiler" model="flota.alquiler" string="Alquileres activos" name="2rent4fun.report_alquiler_resultado" file="2rent4fun.report_alquiler_resultado" report_type="qweb-pdf" />
+
+
+
+    
+
+</odoo>
