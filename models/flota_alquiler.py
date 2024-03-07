@@ -15,15 +15,14 @@ class FlotaAlquiler(models.Model):
 
     #disponible = fields.Boolean('Disponible', default=False)
 
+    @api.constrains('matriculaCoche')
+    def estadoVehiculo(self):
+        for record in self:
+            if record.matriculaCoche.estado != 'Disponible':
+                raise ValidationError('El vehículo seleccionado no está disponible para alquilar.')
+            
     @api.constrains('fechaInicio')
     def funcionFechaPrestamo(self):
         for registro in self:
-            if registro.fechaInicio and registro.fechaInicio > fields.Date.today():
-                raise ValidationError('La fecha de alquiler no puede ser posterior al día de hoy.')
-
-    @api.constrains('fechaDevolucion')
-    def funcionFechaDevolucion(self):
-        for registro in self:
-            yesterday = fields.Date.today() - timedelta(days=1)
-            if registro.fechaDevolucion and registro.fechaDevolucion < yesterday:
-                raise ValidationError('La fecha prevista de vuelta no puede ser anterior al día de ayer.')
+            if registro.fechaInicio >= fields.Date.today():
+                raise ValidationError('La fecha de alquiler no puede ser igual o posterior al día de hoy.')
