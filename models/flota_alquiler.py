@@ -19,6 +19,9 @@ class FlotaAlquiler(models.Model):
     def devolver_vehiculo(self):
         self.matriculaCoche.estado="Disponible"
 
+    def alquilar_vehiculo(self):
+        self.matriculaCoche.estado="Alquilado"
+
     @api.constrains('matriculaCoche')
     def estadoVehiculo(self):
         for record in self:
@@ -45,4 +48,14 @@ class FlotaAlquiler(models.Model):
         result=super(FlotaAlquiler,self).unlink()
         #Añado que llame a devolver_vehiculo()
         self.devolver_vehiculo()
+        return result
+    
+    #Sobreescribo el metodo crear
+    @api.model
+    def create(self, values):
+        #hago lo normal del metodo create
+        result = super().create(values)
+        #Añado esto: llamo a la funcion que actualiza la clasificacion
+        self.alquilar_vehiculo()
+        #hago lo normal del metodo create
         return result
