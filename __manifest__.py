@@ -18,8 +18,10 @@
     'data': [
 
         'security/ir.model.access.csv',
-        'views/flota_cliente.xml'
-        'views/flota_vehiculo.xml'
+        'views/flota_cliente.xml',
+        'views/flota_vehiculo.xml',
+        'views/flota_alquiler.xml'
+        
 
         
         

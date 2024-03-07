@@ -17,9 +17,6 @@ class FlotaCLiente(models.Model):
     _rec_name = 'nombreCompleto'
 
     #ATRIBUTOS
-
-    
-
     
     nombre = fields.Char('Nombre')
     apellido = fields.Char('Apellido')

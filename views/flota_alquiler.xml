@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='flota_alquiler_action' model='ir.actions.act_window'>
+        <field name="name">Alquiler de Vehiculo</field>
+        <field name="res_model">flota.alquiler</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Renting 2rent 2 fun aruedia202" id="flota_base_menu" />
+    <menuitem name="Alquileres" id="flota_alquiler_menu" parent="flota_base_menu" action="flota_alquiler_action"/>
+
+    <!-- Tree(list) View -->
+    <record id="flota_alquiler_view_tree" model="ir.ui.view">
+        <field name="name">Lista de Alquileres de la flota</field>
+        <field name="model">flota.alquiler</field>
+        <field name="arch" type="xml">
+            <tree>
+
+                <field name="matriculaCoche"/>
+                <field name="nombreCliente"/>                
+                <field name="fechaInicio"/>
+                <field name="fechaDevolucion"/>                        
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista formulario -->
+    <record id="flota_alquiler_view_form" model="ir.ui.view">
+        <field name="name">Formulario de alquiler</field>
+        <field name="model">flota.alquiler</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="matriculaCoche"/>
+                        <field name="nombreCliente"/>                
+                        <field name="fechaInicio"/>
+                        <field name="fechaDevolucion"/>   
+
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
